@@ -136,7 +136,8 @@ body {
 #guides {
   padding: 4rem 2rem;
   background: #f9f9f9;
-  }
+  overflow-x: visible;
+}
   
 .guides-container {
   max-width: 1200px;
@@ -153,12 +154,8 @@ body {
 
   
 .guide-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  min-width: 300px;
+  flex-shrink: 0; 
 }
   
 .guide-card:hover {
@@ -206,33 +203,122 @@ body {
 }
 
 /* styles for section cities */
+.city-groups {
+  display: flex;
+  flex-direction: column; 
+  gap: 4rem; 
+}
+
 .city-group {
-  margin-bottom: 4rem;
+  width: 100%; 
 }
 
 .city-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #2c3e50;
-  margin-bottom: 2rem;
-  padding-left: 1rem;
-  border-left: 5px solid #e74c3c;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  left: 0;
 }
 
 .city-guides {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
   gap: 2rem;
-  margin-bottom: 3rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
 }
 
 .divider {
+  display: block;
   border: 0;
-  height: 2px;
+  height: 1px;
   background: #ddd;
-  margin: 3rem auto;
-  width: 80%;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+/* styles for black theme */
+
+body.dark {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+body.dark .main-nav {
+  background: #2d2d2d;
+}
+
+body.dark .nav-container {
+  background: #333;
+}
+
+body.dark .site-title {
+  color: #fff !important;
+}
+
+body.dark .nav-link {
+  color: #ccc;
+  background: #444;
+}
+
+body.dark .guide-card {
+  background: #333;
+}
+
+body.dark .guide-title {
+  color: #fff;
+}
+
+body.dark .guide-description {
+  color: #ccc;
+}
+
+/*styles for footer */
+.main-footer {
+  background: #333;
+  color: #fff;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.3s ease;
+}
+
+.icon:hover {
+  opacity: 0.8;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+body.dark .main-footer {
+  background: #1a1a1a;
+  border-top: 1px solid #333;
 }
   
+
+
+
+/* Media queries */
 @media (max-width: 768px) {
     .nav-container {
       flex-direction: column;
@@ -257,5 +343,26 @@ body {
   
     #about {
       margin-top: 140px;
+    }
+    .city-groups {
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+    }
+    
+    .city-group {
+      min-width: 85vw;
+    }
+    .city-guides {
+      -webkit-overflow-scrolling: touch;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .guide-card {
+      min-width: 85vw;
+    }
+    
+    .divider {
+      margin: 2rem 1rem;
     }
 }

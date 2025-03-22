@@ -34,7 +34,7 @@
     </div>
   </section>
 
-  <section id="guides" class="section fullscreen">
+  <section id="guides" class="section">
     <div class="guides-container">
       <h2 class="section-title">Available guides</h2>
       <div class="city-groups">
@@ -42,18 +42,42 @@
     </div>
   </section>
 
-  <section id="settings" class="section fullscreen">
-    <div class="content">
-      <h2>Settings</h2>
-      <div class="theme-switch">
-        <label for="theme">Téma:</label>
-        <select id="theme">
-          <option value="light">Black</option>
-          <option value="dark">White</option>
-        </select>
+  <section id="settings" class="section">
+    <div class="settings-container">
+      <h2 class="section-title">Settings</h2>
+      
+      <div class="settings-content">
+        <div class="theme-card">
+          <h3>Appearance</h3>
+          <div class="theme-switch">
+            <label>Theme:</label>
+            <select id="theme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+          </svg>
+        </a>
+        <a href="#" class="social-link">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.655-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.05 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="copyright">© 2024 TravelGuide. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="/public/js/main.js"></script>
 </body>
