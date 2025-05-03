@@ -11,6 +11,7 @@ html {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+  
 }
   
 .main-nav {
@@ -76,7 +77,10 @@ body {
     align-items: center;
     justify-content: center;
 }
-/* Section about us */
+
+/* Section about us -------------------------------------------------------------------------*/
+
+
 #about {
     margin-top: 100px;
   }
@@ -132,7 +136,8 @@ body {
   color: #666;
 }
 
-/* Section list of guides */
+/* Section list of guides----------------------------------------------------- */
+
 #guides {
   padding: 4rem 2rem;
   background: #f9f9f9;
@@ -151,7 +156,6 @@ body {
   color: #2c3e50;
 }
   
-
   
 .guide-card {
   min-width: 300px;
@@ -238,6 +242,7 @@ body {
   width: 100%;
 }
 
+
 /* styles for black theme */
 
 body.dark {
@@ -273,6 +278,11 @@ body.dark .guide-title {
 body.dark .guide-description {
   color: #ccc;
 }
+body.dark .main-footer {
+  background: #1a1a1a;
+  border-top: 1px solid #333;
+}
+
 
 /*styles for footer */
 .main-footer {
@@ -310,13 +320,7 @@ body.dark .guide-description {
   color: #ccc;
 }
 
-body.dark .main-footer {
-  background: #1a1a1a;
-  border-top: 1px solid #333;
-}
   
-
-
 
 /* Media queries */
 @media (max-width: 768px) {

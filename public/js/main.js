@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="guide-duration">${guide.duration}</span>
               <span class="guide-length">${guide.length}</span>
             </div>
-            <a href="/guide/${guide.id}" class="btn">Detail</a>
+            <a href="route_detail.html?id=${guide.id}" class="btn">Detail</a>
           </div>
         `;
         guidesGrid.appendChild(card);

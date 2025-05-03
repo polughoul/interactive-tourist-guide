@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .back-button {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #ffffff;
+    color: #007BFF;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .back-button:hover {
+    background-color: #007BFF;
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin: 1.5rem 0 1rem;
+    color: #e74c3c;
+  }
+
+  #map {
+    height: 350px;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  video, audio {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .media-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .gallery {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+  }
+
+  .gallery img {
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  /* Dark theme support */
+  body.dark {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  body.dark .back-button {
+    background: #333;
+    color: #fff;
+  }
+
+  body.dark .back-button:hover {
+    background: #007BFF;
+  }
+
+  body.dark h2 {
+    color: #ff6b6b;
+  }
+
+  body.dark .gallery img {
+    border: 2px solid #444;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .gallery img {
+      height: 120px;
+    }
+  }
+
+  
+/*styles for footer */
+.main-footer {
+    background: #333;
+    color: #fff;
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-content {
+    max-width: 2000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .icon:hover {
+    opacity: 0.8;
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
