@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     let route = null;
   
-    // Попробуем достать из localStorage
+    // localStorage
     const citiesData = JSON.parse(localStorage.getItem("citiesData")) || [];
     for (const city of citiesData) {
       route = city.guides.find(g => g.id === routeId);
@@ -19,21 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
   
     document.getElementById("route-title").textContent = route.title || "Untitled route";
   
-    // Видео
+    // video
     const video = document.getElementById("route-video");
     if (route.video) {
       video.querySelector('source').src = route.video;
       video.load();
     }
   
-    // Аудио
+    // aUDIO
     const audio = document.getElementById("route-audio");
     if (route.audio) {
       audio.querySelector('source').src = route.audio;
       audio.load();
     }
   
-    // Галерея
+    // Galery
     const galleryContainer = document.getElementById("route-gallery");
     (route.gallery || []).forEach(src => {
       const img = document.createElement("img");
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       galleryContainer.appendChild(img);
     });
   
-    // Карта
+    // Map
     if (route.coords || (route.coordinates && route.coordinates.length > 0)) {
       const coords = route.coords || route.coordinates[0];
       const map = L.map("map").setView(coords, 13);
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById("map").textContent = "No map data available.";
     }
   
-    // Переключение темы
+    // them toggle
     const toggleButton = document.getElementById('theme-toggle');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark');
