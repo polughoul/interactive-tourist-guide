@@ -196,10 +196,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const guidesGrid = document.createElement('div');
       guidesGrid.className = 'city-guides';
+      guidesGrid.setAttribute('data-city-index', cityIndex);
 
       city.guides.forEach((guide, guideIndex) => {
         const card = document.createElement('article');
         card.className = 'guide-card';
+        card.setAttribute('data-guide-id', guide.id);
         card.innerHTML = `
           <div class="guide-image-wrapper">
             <img src="${guide.image}" alt="${guide.title}" class="guide-image">
@@ -379,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const initApp = () => {
     renderGuides();
+    initCardDragAndDrop();
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -413,6 +416,66 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(section);
     });
   };
+
+  function initCardDragAndDrop() {
+    // Для каждого контейнера с карточками маршрутов
+    const cityGuidesContainers = document.querySelectorAll('.city-guides');
+    cityGuidesContainers.forEach(container => {
+      let draggingEl = null;
+      
+      // Сделать каждую карточку перетаскиваемой
+      Array.from(container.children).forEach(card => {
+        card.setAttribute('draggable', true);
+        
+        card.addEventListener('dragstart', (e) => {
+          draggingEl = card;
+          card.style.opacity = '0.5';
+          e.dataTransfer.effectAllowed = 'move';
+        });
+        
+        card.addEventListener('dragend', () => {
+          card.style.opacity = '1';
+          draggingEl = null;
+          // Если нужно, можно сохранить новый порядок в localStorage здесь
+        });
+        
+        card.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+        });
+        
+        card.addEventListener('drop', (e) => {
+          e.preventDefault();
+          if (draggingEl && draggingEl !== card) {
+            // Определяем индексы карточек в контейнере
+            const cardsArray = Array.from(container.children);
+            const draggingIndex = cardsArray.indexOf(draggingEl);
+            const dropIndex = cardsArray.indexOf(card);
+            if (draggingIndex < dropIndex) {
+              container.insertBefore(draggingEl, card.nextSibling);
+            } else {
+              container.insertBefore(draggingEl, card);
+            }
+            // Сохраняем новый порядок в localStorage
+            const cityIndex = container.getAttribute('data-city-index');
+            if (cityIndex !== null) {
+              const newOrder = Array.from(container.children).map(item => item.getAttribute('data-guide-id'));
+              const cities = JSON.parse(localStorage.getItem('citiesData'));
+              const city = cities[cityIndex];
+              const newGuides = [];
+              newOrder.forEach(id => {
+                const guide = city.guides.find(g => String(g.id) === id);
+                if (guide) newGuides.push(guide);
+              });
+              city.guides = newGuides;
+              cities[cityIndex] = city;
+              localStorage.setItem('citiesData', JSON.stringify(cities));
+            }
+          }
+        });
+      });
+    });
+  }
 
   initApp();
 });
