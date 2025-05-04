@@ -8,45 +8,56 @@
   <link rel="stylesheet" href="/public/css/route_details.css" />
 </head>
 <body>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-    <a class="back-button" href="index.html">Back to home page</a>
-    <button id="theme-toggle" class="back-button">🌓</button>
-  </div>
+  <!-- Обёртка основного контента -->
+  <div class="main-content">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <a class="back-button" href="index.html">Back to home page</a>
+      <button id="theme-toggle" class="back-button">🌓</button>
+    </div>
 
-  <h1 id="route-title">downloading..</h1>
-  <div id="map"></div>
-  <div class="media-section">
-    <h2>Video-guide</h2>
-    <video id="route-video" controls poster="">
-      <source src="" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <h1 id="route-title">downloading..</h1>
+    <div id="map"></div>
+    <div class="media-section">
+      <h2>Video-guide</h2>
+      <video id="route-video" controls poster="">
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-  <div class="media-section">
-    <h2>Audioguide</h2>
-    <audio id="route-audio" controls>
-      <source src="" type="audio/mpeg">
-      Your browser does not support the audio.
-    </audio>
-  </div>
+    <div class="media-section">
+      <h2>Audioguide</h2>
+      <audio id="route-audio" controls>
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio.
+      </audio>
+    </div>
 
-  <div class="media-section">
-    <h2>Galery</h2>
-    <div class="gallery" id="route-gallery"></div>
+    <!-- Галерея со слайдером -->
+    <div class="media-section slider-container">
+      <h2>Gallery</h2>
+      <div class="slider">
+        <button class="slider-btn prev">&#10094;</button>
+        <div class="slider-track" id="gallery-slider">
+          <!-- Слайды (изображения будут добавляться скриптом) -->
+        </div>
+        <button class="slider-btn next">&#10095;</button>
+      </div>
+    </div>
   </div>
-
+  
+  <!-- Футер (растянут на всю ширину) -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="social-links">
         <a href="#" class="social-link">
           <svg class="icon" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+            <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
           </svg>
         </a>
         <a href="#" class="social-link">
           <svg class="icon" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.655-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.05 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.655-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.05 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
           </svg>
         </a>
       </div>
@@ -56,6 +67,38 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="/public/js/route.js"></script>
+  <!-- Скрипт для слайдера галереи -->
+  <script>
+    (function() {
+      const sliderTrack = document.getElementById('gallery-slider');
+      let currentIndex = 0;
+      let slides = [];
+      
+      // Предполагаем, что изображения галереи уже добавлены динамически
+      // Если у вас gallery, как ранее, то можно пробежаться по элементам и перенести их в sliderTrack
+      const galleryDiv = document.getElementById('route-gallery');
+      if(galleryDiv) {
+        slides = Array.from(galleryDiv.querySelectorAll('img'));
+        slides.forEach(slide => sliderTrack.appendChild(slide));
+      }
+      
+      const updateSlider = () => {
+        const slideWidth = sliderTrack.clientWidth;
+        sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      };
+      
+      document.querySelector('.slider-btn.prev').addEventListener('click', () => {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+        updateSlider();
+      });
+      
+      document.querySelector('.slider-btn.next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+      });
+      
+      window.addEventListener('resize', updateSlider);
+    })();
+  </script>
 </body>
 </html>
-

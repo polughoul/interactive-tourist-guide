@@ -14,8 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.5",
               length: "5km",
               video: "https://www.youtube.com/watch?v=example1",
-              image: "media/madrid1.jpg",
-              coords: [40.4168, -3.7038]
+              image: "/public/images/madrid1.jpg",
+              coords: [40.4168, -3.7038],
+              gallery:
+                [
+                  "/public/images/madrid_slider1.jpg",
+                  "/public/images/madrid_slider2.jpg",
+                  "/public/images/madrid_slider3.jpg"
+                ]
             },
             {
               id: 2,
@@ -25,8 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.7",
               length: "6km",
               video: "https://www.youtube.com/watch?v=example2",
-              image: "media/madrid2.jpg",
-              coords: [40.4188, -3.7058]
+              image: "/public/images/madrid2.jpg",
+              coords: [40.4188, -3.7058],
+              gallery:
+                [
+                  "/public/images/madrid_slider4.jpg",
+                  "/public/images/madrid_slider5.jpg",
+                  "/public/images/madrid_slider6.jpg"
+                ] 
             },
             {
               id: 3,
@@ -36,8 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.3",
               length: "4km",
               video: "https://www.youtube.com/watch?v=example3",
-              image: "media/madrid3.jpg",
-              coords: [40.4178, -3.7028]
+              image: "/public/images/madrid3.jpg",
+              coords: [40.4178, -3.7028],
+              gallery:
+                [
+                  "/public/images/madrid_slider7.jpg",
+                  "/public/images/madrid_slider8.jpg",
+                  "/public/images/madrid_slider9.jpg"
+                ]
             }
           ]
         },
@@ -52,8 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.6",
               length: "5.5km",
               video: "https://www.youtube.com/watch?v=example4",
-              image: "media/prague1.jpg",
-              coords: [50.0755, 14.4378]
+              image: "/public/images/prague1.jpg",
+              coords: [50.0755, 14.4378],
+              gallery:
+                [
+                  "/public/images/prague_slider1.jpg",
+                  "/public/images/prague_slider2.jpg",
+                  "/public/images/prague_slider3.jpg"
+                ]
             },
             {
               id: 5,
@@ -63,8 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.8",
               length: "7km",
               video: "https://www.youtube.com/watch?v=example5",
-              image: "media/prague2.jpg",
-              coords: [50.0880, 14.4208]
+              image: "/public/images/prague2.jpg",
+              coords: [50.0880, 14.4208],
+              gallery:
+                [
+                  "/public/images/prague_slider4.jpg",
+                  "/public/images/prague_slider5.jpg",
+                  "/public/images/prague_slider6.jpg"
+                ]
             },
             {
               id: 6,
@@ -74,8 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.4",
               length: "5km",
               video: "https://www.youtube.com/watch?v=example6",
-              image: "media/prague3.jpg",
-              coords: [50.083, 14.431]
+              image: "/public/images/prague3.jpg",
+              coords: [50.083, 14.431],
+              gallery:
+                [
+                  "/public/images/prague_slider7.jpg",
+                  "/public/images/prague_slider8.jpg",
+                  "/public/images/prague_slider9.jpg"
+                ]
             }
           ]
         },
@@ -90,8 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.7",
               length: "6km",
               video: "https://www.youtube.com/watch?v=example7",
-              image: "media/rome1.jpg",
-              coords: [41.9028, 12.4964]
+              image: "/public/images/rome1.jpg",
+              coords: [41.9028, 12.4964],
+              gallery:
+                [
+                  "/public/images/rome_slider1.jpg",
+                  "/public/images/rome_slider2.jpg",
+                  "/public/images/rome_slider3.jpg"
+                ]
             },
             {
               id: 8,
@@ -101,8 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.9",
               length: "4km",
               video: "https://www.youtube.com/watch?v=example8",
-              image: "media/rome2.jpg",
-              coords: [41.906, 12.453]
+              image: "/public/images/rome2.jpg",
+              coords: [41.906, 12.453],
+              gallery:
+                [
+                  "/public/images/rome_slider4.jpg",
+                  "/public/images/rome_slider5.jpg",
+                  "/public/images/rome_slider6.jpg"
+                ]
             },
             {
               id: 9,
@@ -112,8 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
               rating: "4.5",
               length: "3.5km",
               video: "https://www.youtube.com/watch?v=example9",
-              image: "media/rome3.jpg",
-              coords: [41.900, 12.483]
+              image: "/public/images/rome3.jpg",
+              coords: [41.900, 12.483],
+              gallery:
+                [
+                  "/public/images/rome_slider7.jpg",
+                  "/public/images/rome_slider8.jpg",
+                  "/public/images/rome_slider9.jpg"
+                ]
             }
           ]
         }
@@ -147,7 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('article');
         card.className = 'guide-card';
         card.innerHTML = `
-          <img src="${guide.image}" alt="${guide.title}" class="guide-image">
+          <div class="guide-image-wrapper">
+            <img src="${guide.image}" alt="${guide.title}" class="guide-image">
+          </div>
           <div class="guide-content">
             <h3>${guide.title}</h3>
             <p class="guide-description">${guide.description}</p>
@@ -156,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="guide-duration">${guide.duration}</span>
               <span class="guide-length">${guide.length}</span>
             </div>
-            <a href="route_detail.html?id=${guide.id}" class="btn">Detail</a>
+            <a href="route_detail.html?id=${guide.id}" class="btn detail-btn">Detail</a>
             ${isAdmin ? `<button class="btn edit-btn" data-city-index="${cityIndex}" data-guide-index="${guideIndex}">Edit</button>` : ''}
           </div>
         `;
@@ -164,17 +220,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       cityGroup.appendChild(guidesGrid);
-
       if (cities.length > 1 && cityIndex < cities.length - 1) {
         const divider = document.createElement('hr');
         divider.className = 'divider';
         cityGroup.appendChild(divider);
       }
-
       cityGroups.appendChild(cityGroup);
     });
   };
-
+ 
   // Функция для показа модального окна редактирования
   function showEditModal(cityIndex, guideIndex) {
     const cities = JSON.parse(localStorage.getItem('citiesData')) || [];
@@ -210,6 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
             Video (YouTube Link):
             <input type="url" name="video" value="${guide.video}" required>
           </label>
+          <label>
+            Image:
+            <input type="file" name="image" accept="image/*" onchange="previewImage(event)">
           <div class="modal-buttons">
             <button type="submit">Save</button>
             <button type="button" id="cancel-edit">Cancel</button>
@@ -232,10 +289,25 @@ document.addEventListener('DOMContentLoaded', () => {
       guide.rating = formData.get('rating');
       guide.length = formData.get('length');
       guide.video = formData.get('video');
-      cities[cityIndex].guides[guideIndex] = guide;
-      localStorage.setItem('citiesData', JSON.stringify(cities));
-      renderGuides();
-      modal.remove();
+      const fileInput = e.target.querySelector('input[name="image"]');
+      const file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          guide.image = event.target.result; // base64
+          cities[cityIndex].guides[guideIndex] = guide;
+          localStorage.setItem('citiesData', JSON.stringify(cities)); 
+          renderGuides();
+          modal.remove();
+        };
+        reader.readAsDataURL(file)
+      } else{
+        cities[cityIndex].guides[guideIndex] = guide;
+        localStorage.setItem('citiesData', JSON.stringify(cities));
+        renderGuides();
+        modal.remove();
+      }
     });
   }
 
@@ -248,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Если администратор залогинен, показываем кнопку Logout
+  // Кнопка Logout для администратора
   const logoutBtn = document.getElementById('logout-btn');
   if (localStorage.getItem('isAdmin') === 'true') {
     logoutBtn.style.display = 'block';
@@ -258,26 +330,72 @@ document.addEventListener('DOMContentLoaded', () => {
     location.reload();
   });
 
+  // Функция расчёта расстояния между двумя координатами (Хаверсайн)
+  function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Радиус Земли в км
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 +
+          Math.cos(lat1 * Math.PI / 180) *
+          Math.cos(lat2 * Math.PI / 180) *
+          Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  // Функция поиска ближайших маршрутов
+  function findNearestRoutes() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        const cities = JSON.parse(localStorage.getItem('citiesData')) || [];
+        const routes = [];
+        cities.forEach(city => {
+          city.guides.forEach(guide => {
+            const d = calculateDistance(userLat, userLon, guide.coords[0], guide.coords[1]);
+            routes.push({ ...guide, distance: d });
+          });
+        });
+        routes.sort((a, b) => a.distance - b.distance);
+        alert("The nearest route is: " + routes[0].title + " (" + routes[0].distance.toFixed(2) + " km away).");
+      }, (err) => {
+        alert("Error " + err.message);
+      });
+    } else {
+      alert("Geolocation API don't support this browser");
+    }
+  }
+
+  // Привязываем событие к кнопке "Найти ближайшие маршруты"
+  const findNearbyBtn = document.getElementById('find-nearby');
+  if (findNearbyBtn) {
+    findNearbyBtn.addEventListener('click', findNearestRoutes);
+  }
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+
   const initApp = () => {
     renderGuides();
-
-    const themeSelect = document.getElementById('theme');
-    themeSelect.addEventListener('change', (e) => {
-      document.body.className = e.target.value;
-      localStorage.setItem('theme', e.target.value);
-    });
-
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.className = savedTheme;
-    themeSelect.value = savedTheme;
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Добавление динамического эффекта для SVG-иконок в футере
+    document.querySelectorAll('.social-link svg').forEach(icon => {
+      icon.style.transition = 'fill 0.3s ease';
+      icon.addEventListener('mouseenter', () => {
+        icon.style.fill = '#ff5722'; // новый цвет при наведении
+      });
+      icon.addEventListener('mouseleave', () => {
+        icon.style.fill = ''; // вернуться к исходному значению
       });
     });
 
@@ -291,7 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.5 });
-
     document.querySelectorAll('.section').forEach(section => {
       observer.observe(section);
     });

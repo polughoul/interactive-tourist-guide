@@ -158,8 +158,22 @@ body {
   
   
 .guide-card {
-  min-width: 300px;
+  min-width: 600px;
+  max-width: 600px;
   flex-shrink: 0; 
+}
+
+/* Контейнер для изображения карточки с фиксированной высотой */
+.guide-image-wrapper {
+  width: 100%;
+  height: 300px;  
+  overflow: hidden;
+}
+
+.guide-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
   
 .guide-card:hover {
@@ -308,11 +322,7 @@ body.dark .main-footer {
 .icon {
   width: 32px;
   height: 32px;
-  transition: opacity 0.3s ease;
-}
-
-.icon:hover {
-  opacity: 0.8;
+  fill: #fff; 
 }
 
 .copyright {
@@ -361,6 +371,46 @@ body.dark .main-footer {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+}
+
+/* Анимация появления модального окна */
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#edit-modal {
+  animation: fadeIn 0.3s ease forwards;
+  -webkit-animation: fadeIn 0.3s ease forwards;
+}
+
+/* Vendor-префиксы для transform/transition применены в следующих правилах */
+.guide-card:hover {
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+  -webkit-box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Стилизация кнопок Edit и Detail (общий класс .btn) */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background: #0056b3;
 }
   
 
