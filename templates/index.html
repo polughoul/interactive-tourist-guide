@@ -24,7 +24,6 @@
     <div class="hero-banner">
       <div class="banner-content">
         <h1>Travel with interactive guides from <span>TravelGuide</span></h1>
-        <a href="#guides" class = "button-start">Let's go!</a>
       </div>
       
     </div>
@@ -38,7 +37,7 @@
     <div class="guides-container">
       <h2 class="section-title">Available guides</h2>
       <button id="find-nearby" class="btn">Find nearest guides</button>
-      <div class="city-groups"></div>
+      <div id="app"></div>
     </div>
   </section>
 
@@ -67,6 +66,8 @@
     </svg>
   </button>
 
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script type = "module" src="/public/js/vue-app.js"></script>
   <script src="/public/js/main.js"></script>
 </body>
 </html>
