@@ -6,6 +6,7 @@
   <title>Route details</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="/public/css/route_details.css" />
+  <link rel="manifest" href="/public/manifest.json">
 </head>
 <body>
   <!-- Обёртка основного контента -->
@@ -99,6 +100,19 @@
       
       window.addEventListener('resize', updateSlider);
     })();
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/public/service_worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.log('Service Worker registration failed: ', err);
+        });
+      });
+    }
   </script>
   <script src="/public/js/media_control.js"></script>
 </body>
