@@ -68,6 +68,7 @@ function initializeDefaultData() {
             length: "5km",
             video: "https://www.youtube.com/watch?v=example1",
             image: "/public/images/madrid1.jpg",
+            audio: "/public/audio/madrid1.mp3",
             coords: [40.4168, -3.7038],
             gallery: [
               "/public/images/madrid_slider1.jpg",
@@ -84,6 +85,7 @@ function initializeDefaultData() {
             length: "6km",
             video: "https://www.youtube.com/watch?v=example2",
             image: "/public/images/madrid2.jpg",
+            audio: "/public/audio/madrid2.mp3",
             coords: [40.4188, -3.7058],
             gallery: [
               "/public/images/madrid_slider4.jpg",
@@ -100,6 +102,7 @@ function initializeDefaultData() {
             length: "4km",
             video: "https://www.youtube.com/watch?v=example3",
             image: "/public/images/madrid3.jpg",
+            audio: "/public/audio/madrid3.mp3",
             coords: [40.4178, -3.7028],
             gallery: [
               "/public/images/madrid_slider7.jpg",
@@ -121,6 +124,7 @@ function initializeDefaultData() {
             length: "5.5km",
             video: "https://www.youtube.com/watch?v=example4",
             image: "/public/images/prague1.jpg",
+            audio: "/public/audio/prague1.mp3",
             coords: [50.0755, 14.4378],
             gallery: [
               "/public/images/prague_slider1.jpg",
@@ -137,6 +141,7 @@ function initializeDefaultData() {
             length: "7km",
             video: "https://www.youtube.com/watch?v=example5",
             image: "/public/images/prague2.jpg",
+            audio: "/public/audio/prague2.mp3",
             coords: [50.0880, 14.4208],
             gallery: [
               "/public/images/prague_slider4.jpg",
@@ -153,6 +158,7 @@ function initializeDefaultData() {
             length: "5km",
             video: "https://www.youtube.com/watch?v=example6",
             image: "/public/images/prague3.jpg",
+            audio: "/public/audio/prague3.mp3",
             coords: [50.083, 14.431],
             gallery: [
               "/public/images/prague_slider7.jpg",
@@ -174,6 +180,7 @@ function initializeDefaultData() {
             length: "6km",
             video: "https://www.youtube.com/watch?v=example7",
             image: "/public/images/rome1.jpg",
+            audio: "/public/audio/rome1.mp3",
             coords: [41.9028, 12.4964],
             gallery: [
               "/public/images/rome_slider1.jpg",
@@ -190,6 +197,7 @@ function initializeDefaultData() {
             length: "4km",
             video: "https://www.youtube.com/watch?v=example8",
             image: "/public/images/rome2.jpg",
+            audio: "/public/audio/rome2.mp3",
             coords: [41.906, 12.453],
             gallery: [
               "/public/images/rome_slider4.jpg",
@@ -206,6 +214,7 @@ function initializeDefaultData() {
             length: "3.5km",
             video: "https://www.youtube.com/watch?v=example9",
             image: "/public/images/rome3.jpg",
+            audio: "/public/audio/rome3.mp3",
             coords: [41.900, 12.483],
             gallery: [
               "/public/images/rome_slider7.jpg",
