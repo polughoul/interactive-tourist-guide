@@ -96,17 +96,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const id = entry.target.id;
+          const id = entry.target.getAttribute('id');
           document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            if (link.getAttrubute('href').endsWith(`#${id}`) || link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+            else {
+              link.classList.remove('active');
+            }
           });
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.6 });
     document.querySelectorAll('.section').forEach(section => {
       observer.observe(section);
     });
   };
+
+  const sections = document.querySelectorAll('.section');
+  const appearObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => {
+    appearObserver.observe(section);
+  });
 
   initApp();
 });

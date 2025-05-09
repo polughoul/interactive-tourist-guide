@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interaktive touristic guide</title>
   <link rel="stylesheet" href="/public/css/styles.css">
-  <link rel="manifest" href="/public/manifest.json">
 </head>
 <body>
   <nav class="main-nav">
@@ -14,6 +13,7 @@
       <div class="nav-links">
         <a href="#about" class="nav-link active">About us</a>
         <a href="#guides" class="nav-link">Guides</a>
+        <a href="#contacts" class="nav-link">Contacts</a>
         <a href="/templates/admin.html" class="nav-link">Admin</a>
         <a href="#" id="logout-btn" class="nav-link" style="display: none;">Logout</a>
         <button id="theme-toggle" class="theme-toggle-btn">🌓</button>
@@ -42,6 +42,14 @@
     </div>
   </section>
 
+  <section id="contacts" class="section">
+    <div class="contacts-container">
+      <h2>Contact Us</h2>
+      <p>Have any questions? Feel free to contact us via email or phone.</p>
+      <!-- Дополнительное оформление формой или информацией -->
+    </div>
+  </section>
+
   <footer class="main-footer">
     <div class="footer-content">
       <div class="social-links">
@@ -66,19 +74,6 @@
       <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.59L20 12l-8-8z"></path>
     </svg>
   </button>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/public/service_worker.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope: ', registration.scope);
-        })
-        .catch(err => {
-          console.log('Service Worker registration failed: ', err);
-        });
-      });
-    }
-  </script>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script type = "module" src="/public/js/vue-app.js"></script>
