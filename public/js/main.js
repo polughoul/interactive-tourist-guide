@@ -98,16 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
           document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttrubute('href').endsWith(`#${id}`) || link.getAttribute('href') === `#${id}`) {
+            if (link.getAttribute('href') === '#' + id) {
               link.classList.add('active');
-            }
-            else {
+            } else {
               link.classList.remove('active');
             }
           });
         }
       });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.3 }); 
     document.querySelectorAll('.section').forEach(section => {
       observer.observe(section);
     });

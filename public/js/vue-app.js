@@ -1,4 +1,5 @@
 import EditModal from '/public/js/edit_modal.js';
+import FavoriteModal from '/public/js/favorite_modal.js';
 import { loadCities, saveCities } from '/public/js/new_app.js';
 const App = {
     data() {
@@ -12,12 +13,16 @@ const App = {
           cityIndex: null,
           guideIndex: null,
           guide: {}
-        }
+        },
+        favorites: JSON.parse(localStorage.getItem("favorites")) || [],
+        favoriteModalVisible: false,
+        currentFavorite: {}
       }
     },
     methods: {
       updateLocalStorage() {
         saveCities(this.cities);
+        localStorage.setItem("favorites", JSON.stringify(this.favorites));
       },
       openEditModal(cityIndex, guideIndex, guide) {
         this.currentEdit = {
@@ -69,7 +74,27 @@ const App = {
           this.updateLocalStorage();
         }
         this.draggingGuide = null;
+      },
+      openFavoriteModal(cityIndex, guideIndex, guide) {
+        this.currentFavorite = { ...guide};
+        this.favoriteModalVisible = true;
+      },
+      confirmFavorite() {
+        const fav = {id: this.currentFavorite.id, title: this.currentFavorite.title};
+        if (!this.favorites.find(f => f.id === fav.id)) {
+          this.favorites.push(fav);
+          this.updateLocalStorage();
+        }
+        this.favoriteModalVisible = false;
+      },
+      cancelFavorite() {
+        this.favoriteModalVisible = false;
+      },
+      removeFavorite(favId) {
+        this.favorites = this.favorites.filter(fav => String(fav.id) !== String(favId));
+        this.updateLocalStorage();
       }
+
     },
     template: `
       <div>
@@ -83,12 +108,21 @@ const App = {
               :city-index="cityIndex" 
               :guide-index="guideIndex"
               :is-admin="isAdmin"
+              :favorites="favorites"
               @edit="editGuide"
               @drag-start="dragStart(cityIndex, $event, $event)"
               @card-drop="cardDrop(cityIndex, $event)"
+              @add-favorite="openFavoriteModal"
             ></guide-card>
           </div>
         </div>
+        <favorite-list :favorites="favorites" @remove-favorite="removeFavorite"></favorite-list>
+        <favorite-modal
+          :visible="favoriteModalVisible" 
+          :currentFavorite="currentFavorite" 
+          @confirm-favorite="confirmFavorite" 
+          @cancel-favorite="cancelFavorite">
+        </favorite-modal>
         <edit-modal 
           :visible="editingModalVisible" 
           :currentEdit="currentEdit" 
@@ -102,7 +136,12 @@ const App = {
   
   App.components = {
     'guide-card': {
-      props: ['guide', 'cityIndex', 'guideIndex', 'isAdmin'],
+      props: ['guide', 'cityIndex', 'guideIndex', 'isAdmin', 'favorites'],
+      computed: {
+        isFavorited() {
+          return this.favorites.some(fav => String(fav.id) === String(this.guide.id));
+        }
+      },
       template: `
         <article class="guide-card" 
                draggable="true" 
@@ -125,6 +164,11 @@ const App = {
             <button v-if="isAdmin" 
                     class="btn edit-btn" 
                     @click="$emit('edit', cityIndex, guideIndex, guide)">Edit</button>
+            <button class = "btn favorite-btn" @click="$emit('add-favorite', cityIndex, guideIndex, guide)">
+              <svg width="16" height="16" viewBox="0 0 24 24" :fill="isFavorited ? '#FFD700' : 'none'" :stroke="isFavorited ? 'none' : '#000'" stroke-width="2">
+                <path d="M12 .587l3.668 7.568L24 9.423l-6 5.847L19.335 24 12 20.202 4.665 24 6 15.27 0 9.423l8.332-1.268z"/>
+              </svg>
+            </button>
           </div>
         </article>
       `,
@@ -138,7 +182,22 @@ const App = {
         }
       }
     },
-    'edit-modal': EditModal
+    'edit-modal': EditModal,
+    'favorite-modal': FavoriteModal,
+    'favorite-list': {
+      props: ['favorites'],
+      template: `
+        <section id="favorites" class = "section">
+          <h2 class = "section-title">Favorite Guides</h2>
+          <ul class = "favorite-list">
+            <li v-for="fav in favorites" :key="fav.id">
+              <a :href="'route_detail.html?id=' + fav.id">{{ fav.title }}</a>
+              <button class="remove-fav-btn" @click="$emit('remove-favorite', fav.id)">✖</button>
+            </li>
+          </ul>
+        </section>  
+      `
+    }
   };
   
   Vue.createApp(App).mount("#app");
