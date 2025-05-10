@@ -48,7 +48,12 @@ function loadCities() {
 }
 
 function saveCities(cities) {
-  const data = cities.map(city => city.serialize());
+  const data = cities.map(city => ({
+    name: city.name,
+    guides: city.guides.map(g =>
+      (g && typeof g.serialize === 'function') ? g.serialize() : g
+    )
+  }));
   localStorage.setItem("citiesData", JSON.stringify(data));
 }
 

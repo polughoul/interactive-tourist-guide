@@ -162,8 +162,12 @@ const App = {
             </div>
             <a :href="'route_detail.html?id=' + guide.id" class="btn detail-btn">Detail</a>
             <button v-if="isAdmin" 
-                    class="btn edit-btn" 
-                    @click="$emit('edit', cityIndex, guideIndex, guide)">Edit</button>
+                    class="edit-btn" 
+                    @click="$emit('edit', cityIndex, guideIndex, guide)">
+                <svg class="edit-icon" viewBox="0 0 24 24">
+                  <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.001 1.001 0 0 0 0-1.41l-2.34-2.34a1.001 1.001 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                </svg>
+            </button>
             <button class = "btn favorite-btn" @click="$emit('add-favorite', cityIndex, guideIndex, guide)">
               <svg width="16" height="16" viewBox="0 0 24 24" :fill="isFavorited ? '#FFD700' : 'none'" :stroke="isFavorited ? 'none' : '#000'" stroke-width="2">
                 <path d="M12 .587l3.668 7.568L24 9.423l-6 5.847L19.335 24 12 20.202 4.665 24 6 15.27 0 9.423l8.332-1.268z"/>

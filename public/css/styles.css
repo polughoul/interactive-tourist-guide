@@ -157,7 +157,8 @@ body {
 .guide-card {
   min-width: 600px;
   max-width: 600px;
-  flex-shrink: 0; 
+  flex-shrink: 0;
+  position: relative;
 }
 
 /* Container for card image with fixed height */
@@ -389,7 +390,7 @@ body.dark .main-footer {
   -webkit-animation: fadeIn 0.3s ease forwards;
 }
 
-/* Transition & Transform Vendor Prefixes (Example for Guide Card) */
+/* Transition & Transform Vendor Prefixes (Guide Card) */
 
 .guide-card:hover {
   -webkit-transform: translateY(-10px);
@@ -399,6 +400,29 @@ body.dark .main-footer {
 }
 
 /* Button Styles (Edit & Detail) */
+
+.edit-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.edit-icon {
+  width: 20px;
+  height: 20px;
+  fill: #007BFF;
+}
 
 .btn {
   display: inline-block;
@@ -412,6 +436,7 @@ body.dark .main-footer {
   -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
+
 .btn:hover {
   background: #0056b3;
 }
@@ -600,7 +625,7 @@ body.dark .main-footer {
     .city-group {
       min-width: 85vw;
     }
-    
+
     .city-guides {
       -webkit-overflow-scrolling: touch;
       padding-left: 1rem;
