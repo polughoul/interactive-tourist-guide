@@ -1,120 +1,124 @@
+/* Global reset & Base Styles */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
   
 html {
-    scroll-behavior: smooth; 
+  scroll-behavior: smooth; 
 }
   
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-  
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
 }
   
+/* Navigation Styles */
+
 .main-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
   
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    background: #f5f5f5;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: #f5f5f5;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
   
 .site-title {
-    font-size: 1.8rem;
-    color: #666 !important;
-    text-decoration: none;
-    font-weight: 700;
-    padding-right: 2rem;
-    border-right: 2px solid #ddd;
+  font-size: 1.8rem;
+  color: #666 !important;
+  text-decoration: none;
+  font-weight: 700;
+  padding-right: 2rem;
+  border-right: 2px solid #ddd;
 }
   
 .nav-links {
-    display: flex;
-    gap: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
 }
   
 .nav-link {
-    padding: 0.8rem 1.5rem;
-    background: white;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  background: white;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .nav-link:hover {
-    background: #007BFF;
-    color: white !important;
-  }
+  background: #007BFF;
+  color: white !important;
+}
   
   
 .nav-link.active,
 .nav-link:hover {
-    background: #007BFF;
-    color: white;
+  background: #007BFF;
+  color: white;
 }
   
+/* Section global Styles */
+
 .section {
-    padding: 4rem 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease-out;
+  padding: 4rem 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease-out;
 }
 
 .section.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
   
 .fullscreen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Section about us -------------------------------------------------------------------------*/
-
+/* About Section & Hero Banner */
 
 #about {
     margin-top: 100px;
   }
   
 .hero-banner {
-    background: #e74c3c;
-    padding: 6rem 2rem;
-    margin: 0 auto 3rem;
-    width: 95%;
-    border-radius: 15px;
+  background: #e74c3c;
+  padding: 6rem 2rem;
+  margin: 0 auto 3rem;
+  width: 95%;
+  border-radius: 15px;
 }
   
 .banner-content h1 {
-    font-size: 3rem;
-    color: white;
-    text-align: center;
-    line-height: 1.2;
-    max-width: 1200px;
-    margin: 0 auto;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 1200px;
+  margin: 0 auto;
 }
   
 .welcome-block {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
   
 .welcome-block h2 {
@@ -129,7 +133,7 @@ body {
   color: #666;
 }
 
-/* Section list of guides----------------------------------------------------- */
+/* Section list of guides  */
 
 #guides {
   padding: 4rem 2rem;
@@ -156,7 +160,7 @@ body {
   flex-shrink: 0; 
 }
 
-/* Контейнер для изображения карточки с фиксированной высотой */
+/* Container for card image with fixed height */
 .guide-image-wrapper {
   width: 100%;
   height: 300px;  
@@ -213,7 +217,8 @@ body {
   content: "🕒 ";
 }
 
-/* styles for section cities */
+/* Cities Section Styles */
+
 .city-groups {
   display: flex;
   flex-direction: column; 
@@ -250,7 +255,7 @@ body {
 }
 
 
-/* styles for black theme */
+/* Dark Theme Styles */
 
 body.dark {
   background: #1a1a1a;
@@ -291,7 +296,8 @@ body.dark .main-footer {
 }
 
 
-/*styles for footer */
+/* styles for footer */
+
 .main-footer {
   background: #333;
   color: #fff;
@@ -323,6 +329,7 @@ body.dark .main-footer {
   color: #ccc;
 }
 
+/* Modal Window Styles (Edit Modal) */
 
 #edit-modal {
   position: fixed;
@@ -366,7 +373,8 @@ body.dark .main-footer {
   margin-top: 15px;
 }
 
-/* Анимация появления модального окна */
+/* Keyframes for Modal Fade In Animation */
+
 @-webkit-keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -381,7 +389,8 @@ body.dark .main-footer {
   -webkit-animation: fadeIn 0.3s ease forwards;
 }
 
-/* Vendor-префиксы для transform/transition применены в следующих правилах */
+/* Transition & Transform Vendor Prefixes (Example for Guide Card) */
+
 .guide-card:hover {
   -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
@@ -389,7 +398,8 @@ body.dark .main-footer {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Стилизация кнопок Edit и Detail (общий класс .btn) */
+/* Button Styles (Edit & Detail) */
+
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
@@ -406,7 +416,8 @@ body.dark .main-footer {
   background: #0056b3;
 }
 
-/* Стиль для кнопки Scroll to Top */
+/* Scroll To Top Button Styles */
+
 .scroll-top {
   position: fixed;
   bottom: 20px;
@@ -429,7 +440,6 @@ body.dark .main-footer {
   transition: fill 0.3s ease;
 }
 
-/* Эффект при наведении */
 .scroll-top:hover {
   transform: scale(1.1);
 }
@@ -438,13 +448,13 @@ body.dark .main-footer {
   fill: #ff5722;
 }
 
-/* Кнопка появляется при прокрутке */
 .scroll-top.show {
   opacity: 1;
   visibility: visible;
 }
 
-/* Кнопка избранного (звёздочка) */
+/* Favorite Button & Favorite List Styles */
+
 .btn.favorite-btn {
   background: transparent;
   border: none;
@@ -452,26 +462,29 @@ body.dark .main-footer {
   margin-left: 0.5rem;
 }
 
-/* Стили для списка избранных маршрутов */
 .favorite-list {
   list-style: none;
   padding: 0;
   margin: 2rem 0;
 }
+
 .favorite-list li {
   padding: 0.5rem 0;
   font-size: 1.1rem;
 }
+
 .favorite-list li a {
   color: #007BFF;
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 .favorite-list li a:hover {
   color: #0056b3;
 }
 
-/* Модальное окно избранного можно стилизовать аналогично edit-modal */
+/* Favorite Modal Styles */
+
 #favorite-modal {
   position: fixed;
   top: 0;
@@ -484,6 +497,7 @@ body.dark .main-footer {
   align-items: center;
   z-index: 9999;
 }
+
 #favorite-modal .modal-content {
   background: #fff;
   padding: 20px;
@@ -491,11 +505,13 @@ body.dark .main-footer {
   width: 90%;
   max-width: 400px;
 }
+
 #favorite-modal .modal-buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
 }
+
 #favorite-modal button {
   padding: 0.5rem 1rem;
   border: none;
@@ -505,6 +521,7 @@ body.dark .main-footer {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
 #favorite-modal button:hover {
   background: #0056b3;
 }
@@ -518,12 +535,37 @@ body.dark .main-footer {
   cursor: pointer;
   transition: color 0.3s ease;
 }
+
 .remove-fav-btn:hover {
   color: #cc0000;
 }
-  
 
-/* Media queries */
+/* Theme Toggle Button Styles (Fixed Container) */
+
+.theme-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #f0f0f0;
+}
+  
+/* Media Queries */
+
 @media (max-width: 768px) {
     .nav-container {
       flex-direction: column;
@@ -549,6 +591,7 @@ body.dark .main-footer {
     #about {
       margin-top: 140px;
     }
+
     .city-groups {
       flex-wrap: nowrap;
       padding-bottom: 1rem;
@@ -557,6 +600,7 @@ body.dark .main-footer {
     .city-group {
       min-width: 85vw;
     }
+    
     .city-guides {
       -webkit-overflow-scrolling: touch;
       padding-left: 1rem;

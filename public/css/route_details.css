@@ -1,167 +1,99 @@
+/* Global Reset & Base Styles (Rout Page) */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: 'Arial', sans-serif;
-    background: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
+html {
+  scroll-behavior: smooth; 
+}
 
-  .back-button {
-    display: inline-block;
-    margin-bottom: 2rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #ffffff;
-    color: #007BFF;
-    border-radius: 25px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    font-weight: bold;
-  }
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-  .back-button:hover {
-    background-color: #007BFF;
-    color: #fff;
-  }
+/* Back Button and Headings */
 
-  h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-  }
+.back-button {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #ffffff;
+  color: #007BFF;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
 
-  h2 {
-    font-size: 1.6rem;
-    margin: 1.5rem 0 1rem;
-    color: #e74c3c;
-  }
+.back-button:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
 
-  #map {
-    height: 350px;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
 
-  video, audio {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+h2 {
+  font-size: 1.6rem;
+  margin: 1.5rem 0 1rem;
+  color: #e74c3c;
+}
 
-  .media-section {
-    margin-bottom: 2.5rem;
-  }
+/* Map and Media Section Styles */
 
-  .gallery {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    scrollbar-width: thin;
-  }
+#map {
+  height: 350px;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
-  .gallery img {
-    height: 150px;
-    border-radius: 15px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
+video, audio {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-  /* Dark theme support */
-  body.dark {
-    background: #1a1a1a;
-    color: #fff;
-  }
+.media-section {
+  margin-bottom: 2.5rem;
+}
 
-  body.dark .back-button {
-    background: #333;
-    color: #fff;
-  }
 
-  body.dark .back-button:hover {
-    background: #007BFF;
-  }
+/* Gallery & Slider Styles */
+.gallery { 
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+}
 
-  body.dark h2 {
-    color: #ff6b6b;
-  }
+.gallery img {
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
-  body.dark .gallery img {
-    border: 2px solid #444;
-  }
-
-  @media (max-width: 768px) {
-    body {
-      padding: 1rem;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-    }
-
-    .gallery img {
-      height: 120px;
-    }
-  }
-/* styles for audio-control */
-  .custom-audio-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .custom-audio-controls button {
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .custom-audio-controls button:hover {
-    background-color: #005f7a;
-  }
-  
-  .custom-audio-controls .volume-slider,
-  .custom-audio-controls .progress-bar {
-    width: 100px;
-  }
-  
-  .custom-audio-controls .speed-select {
-    padding: 4px;
-    font-size: 14px;
-  }
-  
-  @media (max-width: 600px) {
-    .custom-audio-controls {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-
-/* Обёртка для основного контента, ограниченная 1000px */
 .main-content {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-/* Стили для слайдера галереи */
+/* Slider Styles */ 
+
 .slider {
   position: relative;
   overflow: hidden;
@@ -198,8 +130,8 @@
   right: 10px;
 }
 
-  
 /*styles for footer */
+
 .main-footer {
     background: #333;
     color: #fff;
@@ -207,26 +139,146 @@
     margin-top: 4rem;
   }
   
-  .footer-content {
-    max-width: 2000px;
-    margin: 0 auto;
-    text-align: center;
-  }
+.footer-content {
+  max-width: 2000px;
+  margin: 0 auto;
+  text-align: center;
+}
   
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-  }
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
   
-  .icon {
-    width: 32px;
-    height: 32px;
-    fill: #fff; 
-  }
+.icon {
+  width: 32px;
+  height: 32px;
+  fill: #fff; 
+}
   
-  .copyright {
-    font-size: 0.9rem;
-    color: #ccc;
+.copyright {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Scroll To Top Button Styles */
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2c3e50;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top .icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+.scroll-top:hover {
+  transform: scale(1.1);
+}
+
+.scroll-top:hover .icon {
+  fill: #ff5722;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dark theme support */
+body.dark {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+body.dark .back-button {
+  background: #333;
+  color: #fff;
+}
+
+body.dark .back-button:hover {
+  background: #007BFF;
+}
+
+body.dark h2 {
+  color: #ff6b6b;
+}
+
+body.dark .gallery img {
+  border: 2px solid #444;
+}
+
+/* styles for audio-control */
+
+.custom-audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+  
+.custom-audio-controls button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+  
+.custom-audio-controls button:hover {
+  background-color: #005f7a;
+}
+  
+.custom-audio-controls .volume-slider,
+.custom-audio-controls .progress-bar {
+  width: 100px;
+}
+  
+.custom-audio-controls .speed-select {
+  padding: 4px;
+  font-size: 14px;
+}
+
+  /* media queries */
+@media (max-width: 768px) {
+    body {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .gallery img {
+      height: 120px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .custom-audio-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
