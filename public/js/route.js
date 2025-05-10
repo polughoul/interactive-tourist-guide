@@ -1,5 +1,7 @@
 import Slider from '/public/js/slider.js';
-import { initScrollToTop } from '/public/js/scroll_to_top.js';    
+import { initScrollToTop } from '/public/js/scroll_to_top.js';  
+import { initWeatherWidget } from '/public/js/weather_widget.js';  
+import { initLocalRecommendations } from '/public/js/local_recommendations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -68,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       L.marker(coords).addTo(map).bindPopup(route.title || "Route").openPopup();
     }
+    initWeatherWidget(coords);
+    initLocalRecommendations(coords);
   } else {
     document.getElementById("map").textContent = "No map data available.";
   }

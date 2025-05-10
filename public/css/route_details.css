@@ -130,6 +130,85 @@ video, audio {
   right: 10px;
 }
 
+/* Weather Widget Styles */
+.weather-widget {
+  background: #f1f1f1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+.weather-widget h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+.weather-info {
+  display: flex;
+  align-items: center;
+}
+.weather-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 1rem;
+}
+.weather-details .temperature {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.weather-details .conditions {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Local Recommendations Styles */
+
+.recommendations-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.recommendations-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.recommendations-column h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+.recommendations-column ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.recommendations-column li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.local-recommendations {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+.local-recommendations h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+.local-recommendations ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.local-recommendations li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
 /*styles for footer */
 
 .main-footer {
