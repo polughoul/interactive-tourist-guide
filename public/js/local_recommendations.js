@@ -2,6 +2,7 @@ export async function initLocalRecommendations(coords) {
   const apiKey = 'fsq3ZJ3ySqdyRQtt1HtQiMI0UeKPopHp0BLlrU05y06TYr4='; 
   const [lat, lon] = coords;
 
+  // Helper function to fetch recommendations for a specific category within a given radius.
   async function fetchRecommendations(category, radius) {
     const url = `https://api.foursquare.com/v3/places/search?ll=${lat},${lon}&radius=${radius}&categories=${category}`;
     const response = await fetch(url, {
@@ -18,6 +19,7 @@ export async function initLocalRecommendations(coords) {
   }
   
   try {
+    // Fetch local cafes (category 13065, within 500 m)
     const cafesData = await fetchRecommendations('13065', 500);
     const cafesListEl = document.querySelector('.cafes-list');
     if (cafesListEl) {
@@ -29,6 +31,7 @@ export async function initLocalRecommendations(coords) {
       });
     }
     
+    // Fetch nearby museums (category 10027, within 1000 m)
     const museumsData = await fetchRecommendations('10027', 1000);
     const museumsListEl = document.querySelector('.museums-list');
     if (museumsListEl) {

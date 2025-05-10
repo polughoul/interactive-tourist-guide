@@ -1,3 +1,4 @@
+// Initialize the weather widget by fetching data from OpenWeatherMap.
 export async function initWeatherWidget(coords) {
   const apiKey = '04d0011f3e5a250a566ad3e26029c882';
   const [lat, lon] = coords;
@@ -11,6 +12,7 @@ export async function initWeatherWidget(coords) {
     const data = await response.json();
     const tempEl = document.getElementById('temperature');
     const descEl = document.getElementById('description');
+    // Update DOM elements with fetched weather information.
     tempEl.textContent = `${data.main.temp.toFixed(1)}°C`;
     descEl.textContent = data.weather[0].description;
   } catch (error) {

@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Get the audio element by its id
     const audioPlayer = document.getElementById('route-audio');
     if (!audioPlayer) return;
     
-    // Убираем встроенные контролы
+    // Remove default controls 
     audioPlayer.removeAttribute('controls');
 
-    // Создаем контейнер для кастомных элементов управления
+    // container for custom audio control
     const controlsContainer = document.createElement('div');
     controlsContainer.className = 'custom-audio-controls';
 
-    // Кнопка Play
+    // Play Button
     const playBtn = document.createElement('button');
     playBtn.className = 'btn-play';
     playBtn.textContent = 'Play';
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     controlsContainer.appendChild(playBtn);
 
-    // Кнопка Pause
+    // Pause Button
     const pauseBtn = document.createElement('button');
     pauseBtn.className = 'btn-pause';
     pauseBtn.textContent = 'Pause';
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     controlsContainer.appendChild(pauseBtn);
 
-    // Ползунок регулировки громкости
+    // Volume Slider
     const volumeSlider = document.createElement('input');
     volumeSlider.type = 'range';
     volumeSlider.min = 0;
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     controlsContainer.appendChild(volumeSlider);
 
-    // Индикатор прогресса воспроизведения с возможностью перемотки
+    // Progress Bar for playback and attach an event to allow seeking
     const progressBar = document.createElement('input');
     progressBar.type = 'range';
     progressBar.min = 0;
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     controlsContainer.appendChild(progressBar);
 
-    // Селектор скорости воспроизведения
+    // dropdown for selecting playback speed
     const speedSelect = document.createElement('select');
     speedSelect.className = 'speed-select';
     const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     controlsContainer.appendChild(speedSelect);
 
-    // Кнопка Download для скачивания аудио
+    // Download button
     const downloadBtn = document.createElement('button');
     downloadBtn.className = 'btn-download';
     downloadBtn.textContent = 'Download Audio';
@@ -89,13 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     controlsContainer.appendChild(downloadBtn);
 
-    // Обновление прогресса по времени воспроизведения
+    //  Update the progress bar
     audioPlayer.addEventListener('timeupdate', () => {
       if (audioPlayer.duration) {
         progressBar.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
       }
     });
-
-    // Вставляем блок управления сразу после аудиоплеера
     audioPlayer.parentNode.insertBefore(controlsContainer, audioPlayer.nextSibling);
 });

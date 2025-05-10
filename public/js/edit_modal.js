@@ -1,3 +1,4 @@
+// Vue component for the edit modal to modify guide information.
 const EditModal = {
     props: ['visible', 'currentEdit'],
     emits: ['submit-edit', 'close', 'file-change'],

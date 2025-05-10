@@ -5,7 +5,7 @@ import { initScrollToTop } from '/public/js/scroll_to_top.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // logout button
+  // logout button for admin
   const logoutBtn = document.getElementById('logout-btn');
   if (localStorage.getItem('isAdmin') === 'true') {
     logoutBtn.style.display = 'block';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     location.reload();
   });
 
-  // find nearest routes
+  // find the nearest route using the browser's geolocation API.
   function findNearestRoutes() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const userLon = position.coords.longitude;
         const cities = JSON.parse(localStorage.getItem('citiesData')) || [];
         const routes = [];
+        // Calculate distance for each guide using a utility function.
         cities.forEach(city => {
           city.guides.forEach(guide => {
             const d = Utils.calculateDistance(userLat, userLon, guide.coords[0], guide.coords[1]);
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll to Top
   initScrollToTop();
 
-  // fade-in
+  // Observer to update active navigation link as sections come into view.
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
+  // Observer for fading in content sections.
   const appearObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -80,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     appearObserver.observe(section);
   });
 
-  // scroll to section
+  // scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -88,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+  // add hover effect to social media icons.
   document.querySelectorAll('.social-link svg').forEach(icon => {
     icon.style.transition = 'fill 0.3s ease';
     icon.addEventListener('mouseenter', () => {
@@ -97,7 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.style.fill = '';
     });
   });
-
-  // history api
   initHistoryHandling();
 });

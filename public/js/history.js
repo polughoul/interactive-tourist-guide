@@ -1,3 +1,4 @@
+// Initializes history navigation with smooth scrolling and URL state management.
 export function initHistoryHandling() {
   document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -11,6 +12,7 @@ export function initHistoryHandling() {
     });
   });
   
+  // Handle popstate events (back/forward navigation).
   window.addEventListener('popstate', (event) => {
     if (event.state && event.state.section) {
       const target = document.querySelector(event.state.section);

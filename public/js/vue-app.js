@@ -1,10 +1,17 @@
 import EditModal from '/public/js/edit_modal.js';
 import FavoriteModal from '/public/js/favorite_modal.js';
 import { loadCities, saveCities } from '/public/js/new_app.js';
+
+/*
+  Main Vue application instance.
+  Data properties include:
+    - cities: loaded from localStorage using our OOP models.
+    - isAdmin: whether the user is an admin.
+    - Flags for modal visibility and current data for editing/favoriting.
+*/
 const App = {
     data() {
       return {
-        // Используем модели из OOP модуля для работы с городами
         cities: loadCities(),
         isAdmin: localStorage.getItem("isAdmin") === 'true',
         draggingGuide: null,
@@ -20,10 +27,12 @@ const App = {
       }
     },
     methods: {
+      // Save updated cities and favorites to localStorage
       updateLocalStorage() {
         saveCities(this.cities);
         localStorage.setItem("favorites", JSON.stringify(this.favorites));
       },
+      // Open the edit modal with a deep copy of the guide details
       openEditModal(cityIndex, guideIndex, guide) {
         this.currentEdit = {
           cityIndex,
@@ -32,18 +41,22 @@ const App = {
         };
         this.editingModalVisible = true;
       },
+      // Close the edit modal
       closeEditModal() {
         this.editingModalVisible = false;
       },
+      // Called when the admin clicks the edit button on a guide card
       editGuide(cityIndex, guideIndex, guide) {
         this.openEditModal(cityIndex, guideIndex, guide);
       },
+      // Save modifications after editing and update localStorage
       submitEdit() {
         const { cityIndex, guideIndex, guide } = this.currentEdit;
         this.cities[cityIndex].guides[guideIndex] = guide;
         this.updateLocalStorage();
         this.editingModalVisible = false;
       },
+      // Handle file change event to update the guide image
       handleFileChange(event) {
         const file = event.target.files[0];
         if (file) {
@@ -54,10 +67,12 @@ const App = {
           reader.readAsDataURL(file);
         }
       },
+      // Start dragging a guide card; store its id and city index
       dragStart(cityIndex, guideId, event) {
         this.draggingGuide = { cityIndex, guideId };
         event.dataTransfer.effectAllowed = 'move';
       },
+       // Handle drop event to reposition the dragged guide card
       cardDrop(cityIndex, dropGuideId) {
         if (!this.draggingGuide) return;
         if (this.draggingGuide.cityIndex === cityIndex) {
@@ -75,10 +90,12 @@ const App = {
         }
         this.draggingGuide = null;
       },
+      // Opens the favorite modal and sets the current favorite guide data
       openFavoriteModal(cityIndex, guideIndex, guide) {
         this.currentFavorite = { ...guide};
         this.favoriteModalVisible = true;
       },
+      // Confirm adding the current guide to favorites and update localStorage
       confirmFavorite() {
         const fav = {id: this.currentFavorite.id, title: this.currentFavorite.title};
         if (!this.favorites.find(f => f.id === fav.id)) {
@@ -90,6 +107,7 @@ const App = {
       cancelFavorite() {
         this.favoriteModalVisible = false;
       },
+      // Remove a guide from favorites and update localStorage
       removeFavorite(favId) {
         this.favorites = this.favorites.filter(fav => String(fav.id) !== String(favId));
         this.updateLocalStorage();
@@ -138,6 +156,7 @@ const App = {
     'guide-card': {
       props: ['guide', 'cityIndex', 'guideIndex', 'isAdmin', 'favorites'],
       computed: {
+        // Returns true if the guide is already favorited
         isFavorited() {
           return this.favorites.some(fav => String(fav.id) === String(this.guide.id));
         }
@@ -177,10 +196,12 @@ const App = {
         </article>
       `,
       methods: {
+        // Emit drag start event to parent component with guide id
         handleDragStart(event) {
           this.$emit('drag-start', this.guide.id);
         },
         handleDragEnd() {},
+        // Emit drop event to parent component with guide id
         handleDrop(event) {
           this.$emit('card-drop', this.guide.id);
         }

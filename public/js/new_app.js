@@ -1,4 +1,4 @@
-// Класс для Гида
+// Class representing a Guide with its details.
 class Guide {
   constructor(data) {
     this.id = data.id;
@@ -12,6 +12,7 @@ class Guide {
     this.coords = data.coords;
     this.gallery = data.gallery || [];
   }
+  // Converts the Guide instance to a plain object for storage.
   serialize() {
     return {
       id: this.id,
@@ -28,7 +29,7 @@ class Guide {
   }
 }
 
-// Класс для Города, содержащего гидов
+// Class representing a City containing multiple guides.
 class City {
   constructor(data) {
     this.name = data.name;
@@ -42,11 +43,13 @@ class City {
   }
 }
 
+// Loads cities data from localStorage and returns an array of City instances.
 function loadCities() {
   const data = JSON.parse(localStorage.getItem("citiesData")) || [];
   return data.map(cityData => new City(cityData));
 }
 
+// Saves the array of City instances back into localStorage.
 function saveCities(cities) {
   const data = cities.map(city => ({
     name: city.name,
@@ -57,7 +60,7 @@ function saveCities(cities) {
   localStorage.setItem("citiesData", JSON.stringify(data));
 }
 
-// Инициализация данных по умолчанию, если localStorage пуст
+// Initialize default data in localStorage if none exists.
 function initializeDefaultData() {
   if (!localStorage.getItem("citiesData")) {
     const defaultCities = [

@@ -1,3 +1,4 @@
+// Vue component for the favorite modal to confirm adding a guide to favorites.
 const FavoriteModal = {
   props: ['visible', 'currentFavorite'],
   emits: ['confirm-favorite', 'cancel-favorite'],

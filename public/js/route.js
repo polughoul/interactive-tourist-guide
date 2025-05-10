@@ -4,11 +4,13 @@ import { initWeatherWidget } from '/public/js/weather_widget.js';
 import { initLocalRecommendations } from '/public/js/local_recommendations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Extract route ID from query parameters.
   const urlParams = new URLSearchParams(window.location.search);
   const routeId = Number(urlParams.get("id"));
   
   let route = null;
   const citiesData = JSON.parse(localStorage.getItem("citiesData")) || [];
+  // Search for the route in the cities data.
   for (const city of citiesData) {
     route = city.guides.find(g => g.id === routeId);
     if (route) break;
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
   
+  // Set the route title on the page.
   document.getElementById("route-title").textContent = route.title || "Untitled route";
   
   // video
@@ -45,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.load();
   }
   
-  // Galery
+  // slider
   const galleryContainer = document.getElementById("gallery-slider");
   if (galleryContainer) {
     (route.gallery || []).forEach(src => {
@@ -56,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Map
+  // Map, and, if coordinates are available, initialize weather and local recommendations widgets.
   if (route.coords || (route.coordinates && route.coordinates.length > 0)) {
     const coords = route.coords || route.coordinates[0];
     const map = L.map("map").setView(coords, 13);
@@ -70,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       L.marker(coords).addTo(map).bindPopup(route.title || "Route").openPopup();
     }
+    // Initialize external widgets that use coordinates.
     initWeatherWidget(coords);
     initLocalRecommendations(coords);
   } else {
@@ -87,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initScrollToTop();
   
+  // Add hover effects to social icons.
   document.querySelectorAll('.social-link svg').forEach(icon => {
     icon.style.transition = 'fill 0.3s ease';
     icon.addEventListener('mouseenter', () => {

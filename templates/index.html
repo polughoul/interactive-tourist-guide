@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <body>
+  <!-- Navigation bar with site title and links -->
   <nav class="main-nav">
     <div class="nav-container">
       <a href="#" class="site-title">TravelGuide</a>
@@ -20,12 +21,12 @@
     </div>
   </nav>
 
+  <!-- About section with hero banner and welcome message -->
   <section id="about" class="section">
     <div class="hero-banner">
       <div class="banner-content">
         <h1>Travel with interactive guides from <span>TravelGuide</span></h1>
       </div>
-      
     </div>
     <div class="welcome-block">
       <h2>Welcome to TravelGuide</h2>
@@ -33,6 +34,7 @@
     </div>
   </section>
 
+  <!-- Guides section with available guide cards and find-nearby functionality -->
   <section id="guides" class="section">
     <div class="guides-container">
       <h2 class="section-title">Available guides</h2>
@@ -43,6 +45,7 @@
     </div>
   </section>
 
+  <!-- Footer with social links and copyright -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="social-links">
@@ -61,18 +64,21 @@
     </div>
   </footer>
 
+  <!-- Scroll-to-top button -->
   <button id="scroll-top" class="scroll-top">
     <svg class="icon" viewBox="0 0 24 24">
       <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.59L20 12l-8-8z"></path>
     </svg>
   </button>
 
+  <!-- Theme toggle -->
   <div class="theme-toggle-container">
     <button id="theme-toggle" class="theme-toggle-btn">🌓</button>
   </div>
+
+  <!-- External scripts: Vue app and main functionality -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script type = "module" src="/public/js/vue-app.js"></script>
   <script type = "module" src="/public/js/main.js"></script>
-  
 </body>
 </html>
