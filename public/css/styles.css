@@ -34,6 +34,7 @@ body {
   background: #f5f5f5;
   border-radius: 0 0 15px 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
   
 .site-title {
@@ -55,6 +56,9 @@ body {
   background: white;
   border-radius: 25px;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
   text-decoration: none;
 }
 
@@ -76,12 +80,19 @@ body {
   padding: 4rem 2rem;
   opacity: 0;
   transform: translateY(20px);
+  -webkit-transform: translateY(20px);
+  -moz-transform: translateY(20px);
+  -ms-transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease-out;
+  -webkit-transition: opacity 0.5s ease, transform 0.5s ease-out;
 }
 
 .section.visible {
   opacity: 1;
   transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
 }
   
 .fullscreen {
@@ -173,9 +184,11 @@ body {
   height: 100%;
   object-fit: cover;
 }
-  
+
 .guide-card:hover {
+  -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
+  -webkit-box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
   
@@ -390,15 +403,6 @@ body.dark .main-footer {
   -webkit-animation: fadeIn 0.3s ease forwards;
 }
 
-/* Transition & Transform Vendor Prefixes (Guide Card) */
-
-.guide-card:hover {
-  -webkit-transform: translateY(-10px);
-  transform: translateY(-10px);
-  -webkit-box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
 /* Button Styles (Edit & Detail) */
 
 .edit-btn {
@@ -411,11 +415,20 @@ body.dark .main-footer {
   padding: 8px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
 }
 
 .edit-btn:hover {
   background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
 }
 
 .edit-icon {
@@ -455,6 +468,9 @@ body.dark .main-footer {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
+  -moz-transition: opacity 0.3s ease, transform 0.3s ease;
+  -ms-transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 1000;
 }
 
@@ -463,10 +479,16 @@ body.dark .main-footer {
   height: 24px;
   fill: #fff;
   transition: fill 0.3s ease;
+  -webkit-transition: fill 0.3s ease;
+  -moz-transition: fill 0.3s ease;
+  -ms-transition: fill 0.3s ease;
 }
 
 .scroll-top:hover {
   transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
 }
 
 .scroll-top:hover .icon {
@@ -502,6 +524,9 @@ body.dark .main-footer {
   color: #007BFF;
   text-decoration: none;
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
 }
 
 .favorite-list li a:hover {
@@ -545,6 +570,9 @@ body.dark .main-footer {
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s ease;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
 }
 
 #favorite-modal button:hover {
@@ -559,6 +587,9 @@ body.dark .main-footer {
   font-size: 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
 }
 
 .remove-fav-btn:hover {
@@ -583,6 +614,9 @@ body.dark .main-footer {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
 }
 
 .theme-toggle-btn:hover {

@@ -30,6 +30,7 @@ body {
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   font-weight: bold;
 }
 
@@ -57,12 +58,14 @@ h2 {
   border-radius: 15px;
   margin-bottom: 2rem;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 video, audio {
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .media-section {
@@ -101,7 +104,6 @@ video, audio {
 
 .slider-track {
   display: flex;
-  transition: transform 0.4s ease;
 }
 
 .slider-track img {
@@ -114,6 +116,9 @@ video, audio {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   background: rgba(0,0,0,0.5);
   border: none;
   color: #fff;
@@ -256,6 +261,7 @@ video, audio {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 1000;
 }
 
@@ -264,10 +270,14 @@ video, audio {
   height: 24px;
   fill: #fff;
   transition: fill 0.3s ease;
+  -webkit-transition: fill 0.3s ease;
 }
 
 .scroll-top:hover {
   transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
 }
 
 .scroll-top:hover .icon {
