@@ -1,7 +1,7 @@
-import Slider from '/public/js/utils/slider.js';
-import { initScrollToTop } from '/public/js/utils/scroll_to_top.js';  
-import { initWeatherWidget } from '/public/js/utils/weather_widget.js';  
-import { initLocalRecommendations } from '/public/js/utils/local_recommendations.js';
+import Slider from 'public/js/utils/slider.js';
+import { initScrollToTop } from 'public/js/utils/scroll_to_top.js';  
+import { initWeatherWidget } from 'public/js/utils/weather_widget.js';  
+import { initLocalRecommendations } from 'public/js/utils/local_recommendations.js';
 
 // Function to check real internet connectivity using a request to a CORS-enabled API. 
 // I tried to use navigator.online to check the status, but for some reason it didn't work correctly. 
