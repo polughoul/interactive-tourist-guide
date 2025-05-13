@@ -61,7 +61,7 @@ function saveCities(cities) {
 }
 
 // Initialize default data in localStorage if none exists.
-function initializeDefaultData() {
+export function initializeDefaultData() {
   if (!localStorage.getItem("citiesData")) {
     const defaultCities = [
       {

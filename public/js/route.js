@@ -2,6 +2,9 @@ import Slider from './utils/slider.js';
 import { initScrollToTop } from './utils/scroll_to_top.js';  
 import { initWeatherWidget } from './utils/weather_widget.js';  
 import { initLocalRecommendations } from './utils/local_recommendations.js';
+import { initializeDefaultData, loadCities } from './new_app.js';
+
+initializeDefaultData();
 
 // Function to check real internet connectivity using a request to a CORS-enabled API. 
 // I tried to use navigator.online to check the status, but for some reason it didn't work correctly. 
@@ -26,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const routeId = Number(urlParams.get("id"));
 
   let route = null;
-  const citiesData = JSON.parse(localStorage.getItem("citiesData")) || [];
+  const citiesData = loadCities();
   // Find the route in the cities data.
   for (const city of citiesData) {
     route = city.guides.find(g => g.id === routeId);
