@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get the audio element by its id
+    // Get the audio element by its id
     const audioPlayer = document.getElementById('route-audio');
     if (!audioPlayer) return;
     

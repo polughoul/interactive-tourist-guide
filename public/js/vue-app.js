@@ -1,5 +1,5 @@
-import EditModal from '/public/js/edit_modal.js';
-import FavoriteModal from '/public/js/favorite_modal.js';
+import EditModal from '/public/js/components/edit_modal.js';
+import FavoriteModal from '/public/js/components/favorite_modal.js';
 import { loadCities, saveCities } from '/public/js/new_app.js';
 
 /*
