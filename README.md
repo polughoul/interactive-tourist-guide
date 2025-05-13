@@ -74,8 +74,6 @@ Offline režim je řešen kontrolou připojení pomocí `fetch` na CORS-povolen�
 - Galerie obrázků (slider)
 - Upozornění při nedostupnosti funkcí (offline režim)
 
-### Navigační historie a hladké posouvání
-
 ### Offline režim
 
 - Funkce `checkInternetConnection()` ověřuje připojení přes `fetch`
