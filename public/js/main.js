@@ -1,7 +1,7 @@
-import { initHistoryHandling } from 'public/js/utils/history.js';
-import { initThemeToggle } from 'public/js/utils/theme.js';
-import { Utils } from 'public/js/utils/geolocation.js';
-import { initScrollToTop } from 'public/js/utils/scroll_to_top.js';
+import { initHistoryHandling } from './utils/history.js';
+import { initThemeToggle } from './utils/theme.js';
+import { Utils } from './utils/geolocation.js';
+import { initScrollToTop } from './utils/scroll_to_top.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 

@@ -1,6 +1,6 @@
-import EditModal from 'public/js/components/edit_modal.js';
-import FavoriteModal from 'public/js/components/favorite_modal.js';
-import { loadCities, saveCities } from 'public/js/new_app.js';
+import EditModal from './components/edit_modal.js';
+import FavoriteModal from './components/favorite_modal.js';
+import { loadCities, saveCities } from './new_app.js';
 
 /*
   Main Vue application instance.
