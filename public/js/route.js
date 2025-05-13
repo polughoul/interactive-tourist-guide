@@ -74,15 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // AUDIO
     const audio = document.getElementById("route-audio");
     if (route.audio) {
-      if (isConnected) {
-        audio.querySelector('source').src = route.audio;
-        audio.load();
-      } else {
-        const audioContainer = audio.parentNode;
-        audioContainer.innerHTML = `<p style="padding:1rem; background:#f8d7da; color:#721c24; text-align:center;">
-        No internet connection, audio guide unavailable.</p>`;
-      }
+      audio.querySelector('source').src = route.audio;
+      audio.load();
+    } else {
+      console.log("No audio source found in route data");
     }
+    
 
     // SLIDER
     const galleryContainer = document.getElementById("gallery-slider");
