@@ -64,6 +64,7 @@ Offline režim je řešen kontrolou připojení pomocí `fetch` na CORS-povolen�
 - Karty obsahují:
   - Obrázek, název, popis, hodnocení, délku
   - Tlačítka pro detail, přidání do oblíbených, úpravu (pro admina)
+- Drag and Drop API pro přeskupování karet průvodců. Uživatelé mohou jednoduše přetahovat a měnit pořadí karet.
 
 ### Detail průvodce (`route_detail.html`)
 
