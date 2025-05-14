@@ -23,8 +23,8 @@ Součástí je taky:
 
 ### Složky a soubory
 
-- **`/`** – HTML šablony (`index.html`, `route_detail.html`, `admin.html`)
-- **`css/`** – Stylovací soubory (`styles.css`, `admin.css`, `route_details.css`)
+- **`/`** – HTML šablony (`index.html`, `route_detail.html`, `admin.html`, `404.html`)
+- **`css/`** – Stylovací soubory (`styles.css`, `admin.css`, `route_details.css`, `404.css`)
 - **`js/`** – Hlavní logika aplikace (`main.js`, `route.js`, `vue-app.js`, `auth.js`, `new_app.js`)
 - **`js/components/`** – Vue komponenty (`edit_modal.js`, `favorite_modal.js`)
 - **`js/utils/`** – Pomocné moduly (`slider.js`, `scroll_to_top.js`, `weather_widget.js`, `theme.js`, `media_control.js`)
