@@ -69,7 +69,7 @@ const EditModal = {
           </label>
           <label>
             Image:
-            <input type="file" name="image" accept="image/*" @change="$emit('file-change', $event)">
+            <input type="file" name="image" accept="image/png, image/jpeg, image/jpg" @change="handleFileInput">
           </label>
           <div class="modal-buttons">
             <button type="submit">Save</button>
@@ -80,9 +80,31 @@ const EditModal = {
     </div>
   `,
   methods: {
-  validateAndSubmit() {
-    this.$emit('submit-edit');
-  }
+    handleFileInput(event) {
+      const file = event.target.files[0];
+      if (file && !['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
+        alert('Please upload a valid image file (PNG, JPEG, JPG).');
+        event.target.value = null;
+        return;
+      }
+      this.$emit('file-change', event);
+    },
+    validateAndSubmit() {
+      const forbiddenRegex = /[<>!?]/;
+        const { title, description, duration, rating, length, video } = this.currentEdit.guide;
+        
+        if (
+          forbiddenRegex.test(title) ||
+          forbiddenRegex.test(description) ||
+          forbiddenRegex.test(duration) ||
+          forbiddenRegex.test(rating) ||
+          forbiddenRegex.test(length) 
+        ) {
+          alert("One or more fields contain invalid characters.");
+          return;
+        }
+      this.$emit('submit-edit');
+    }
 }
 };
 
