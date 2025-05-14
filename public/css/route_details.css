@@ -290,6 +290,7 @@ video, audio {
 }
 
 /* Dark theme support */
+
 body.dark {
   background: #1a1a1a;
   color: #fff;
@@ -310,6 +311,34 @@ body.dark h2 {
 
 body.dark .gallery img {
   border: 2px solid #444;
+}
+
+body.dark #route-title {
+  color: #fff;
+}
+
+body.dark .weather-widget {
+  background: #333;
+  color: #fff;
+}
+body.dark .weather-widget h2 {
+  color: #ff6b6b; 
+}
+body.dark .weather-info .temperature,
+body.dark .weather-info .conditions,
+body.dark .weather-details p {
+  color: #eee;
+}
+
+body.dark .local-recommendations {
+  background: #333;
+  color: #fff;
+}
+body.dark .local-recommendations h2 {
+  color: #ff6b6b;
+}
+body.dark .local-recommendations li {
+  color: #ccc;
 }
 
 /* styles for audio-control */

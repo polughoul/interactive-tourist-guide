@@ -309,6 +309,29 @@ body.dark .main-footer {
   border-top: 1px solid #333;
 }
 
+body.dark #edit-modal .modal-content,
+body.dark #favorite-modal .modal-content {
+  background: #333; 
+  color: #eee; 
+}
+
+body.dark #edit-modal input[type="text"],
+body.dark #edit-modal input[type="url"],
+body.dark #edit-modal textarea,
+body.dark #favorite-modal input,
+body.dark #favorite-modal textarea {
+  background: #444;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark .welcome-block h2 {
+  color: #ddd;
+}
+body.dark .welcome-block p {
+  color: #ccc;
+}
+
 
 /* styles for footer */
 

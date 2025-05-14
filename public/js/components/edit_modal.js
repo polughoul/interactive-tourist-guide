@@ -9,6 +9,9 @@ const EditModal = {
         <form @submit.prevent="validateAndSubmit">
           <label>
             Title:
+            <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
+              Enter title (10-30 characters)
+            </small>
             <input type="text"
                    v-model="currentEdit.guide.title"
                    placeholder="Enter title (10-30 characters)"
@@ -16,13 +19,19 @@ const EditModal = {
           </label>
           <label>
             Description:
+            <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
+              Enter description (20-150 characters)
+            </small>
             <textarea v-model="currentEdit.guide.description"
-                      placeholder="Enter description (20-100 characters)"
+                      placeholder="Enter description (20-150 characters)"
                       required minlength="20" maxlength="150"
                       style="white-space: pre-wrap; overflow-wrap: break-word"></textarea>
           </label>
           <label>
             Duration:
+            <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
+              e.g., 3 hours or 45 minutes
+            </small>
             <input type="text"
                    v-model="currentEdit.guide.duration"
                    placeholder="e.g., 3 hours or 45 minutes"
@@ -31,6 +40,9 @@ const EditModal = {
           </label>
           <label>
             Rating:
+            <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
+              e.g., 4.5
+            </small>
             <input type="text"
                    v-model="currentEdit.guide.rating"
                    placeholder="e.g., 4.5"
@@ -39,6 +51,9 @@ const EditModal = {
           </label>
           <label>
             Length:
+            <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
+              e.g., 5 km
+            </small>
             <input type="text"
                    v-model="currentEdit.guide.length"
                    placeholder="e.g., 5 km"
@@ -47,6 +62,9 @@ const EditModal = {
           </label>
           <label>
             Video (YouTube Link):
+            <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
+              e.g., https://www.youtube.com/watch?v=example
+            </small>
             <input type="url" v-model="currentEdit.guide.video" required>
           </label>
           <label>
