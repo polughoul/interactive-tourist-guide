@@ -35,7 +35,7 @@ const EditModal = {
             <input type="text"
                    v-model.trim="currentEdit.guide.duration"
                    placeholder="e.g., 3 hours or 45 minutes"
-                   pattern="^(?:[1-9]|[1-5][0-9]|60)\\s+(hours|minutes)$"
+                   pattern="^(?:[1-9]|[1-5][0-9]|60)\\s+(hours|minutes|hour)$"
                    required>
           </label>
           <label>
