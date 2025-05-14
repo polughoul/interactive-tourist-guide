@@ -60,7 +60,12 @@ const EditModal = {
         </form>
       </div>
     </div>
-  `
+  `,
+  methods: {
+    validateAndSubmit() {
+      this.$emit('submit-edit');
+    }
+  }
 };
 
 export default EditModal;
