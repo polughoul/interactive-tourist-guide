@@ -107,7 +107,7 @@ export function initializeDefaultData() {
             id: 3,
             title: "Madrid Route 3",
             description: "Explore museums and art galleries in Madrid.",
-            duration: "1.5 hours",
+            duration: "1 hour",
             rating: "4.3",
             length: "4 km",
             video: "https://www.youtube.com/watch?v=HRqGcL5ram4",
