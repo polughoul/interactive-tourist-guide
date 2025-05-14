@@ -631,6 +631,15 @@ body.dark .main-footer {
       padding: 1rem;
       border-radius: 0;
     }
+
+    .nav-links {
+      gap: 1rem;
+    }
+  
+    .nav-link {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+    }
   
     .site-title {
       border-right: none;
