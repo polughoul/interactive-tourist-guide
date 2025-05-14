@@ -50,7 +50,7 @@ Offline režim je řešen kontrolou připojení pomocí `fetch` na CORS-povolen�
 
 ## Nasazení a testování
 
-- Projekt lze spustit na HTTP serveru (např. Live Server ve VS Code) nebo otevřit pomoci github pages
+- Projekt lze spustit na HTTP serveru (např. Live Server ve VS Code) nebo otevřit pomoci github pages https://polughoul.github.io/interactive-tourist-guide/
 - vue.global.js je uložen lokálně – pro offline přístup.
 - Testuje se responzivita, kompatibilita napříč prohlížeči a celková použitelnost pomocí moderních CSS technik (včetně vendor prefixů).
 
