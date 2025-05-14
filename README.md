@@ -23,8 +23,8 @@ Součástí je taky:
 
 ### Složky a soubory
 
-- **`/`** – HTML šablony (`index.html`, `route_detail.html`, `admin.html`)
-- **`css/`** – Stylovací soubory (`styles.css`, `admin.css`, `route_details.css`)
+- **`/`** – HTML šablony (`index.html`, `route_detail.html`, `admin.html`, `404.html`)
+- **`css/`** – Stylovací soubory (`styles.css`, `admin.css`, `route_details.css`, `404.css`)
 - **`js/`** – Hlavní logika aplikace (`main.js`, `route.js`, `vue-app.js`, `auth.js`, `new_app.js`)
 - **`js/components/`** – Vue komponenty (`edit_modal.js`, `favorite_modal.js`)
 - **`js/utils/`** – Pomocné moduly (`slider.js`, `scroll_to_top.js`, `weather_widget.js`, `theme.js`, `media_control.js`)
@@ -64,6 +64,7 @@ Offline režim je řešen kontrolou připojení pomocí `fetch` na CORS-povolen�
 - Karty obsahují:
   - Obrázek, název, popis, hodnocení, délku
   - Tlačítka pro detail, přidání do oblíbených, úpravu (pro admina)
+- Drag and Drop API pro přeskupování karet průvodců. Uživatelé mohou jednoduše přetahovat a měnit pořadí karet.
 
 ### Detail průvodce (`route_detail.html`)
 
