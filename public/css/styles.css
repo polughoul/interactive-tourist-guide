@@ -331,6 +331,10 @@ body.dark .welcome-block h2 {
 body.dark .welcome-block p {
   color: #ccc;
 }
+body.dark #edit-modal small {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
 
 
 /* styles for footer */

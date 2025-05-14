@@ -13,7 +13,7 @@ const EditModal = {
               Enter title (10-30 characters)
             </small>
             <input type="text"
-                   v-model="currentEdit.guide.title"
+                   v-model.trim="currentEdit.guide.title"
                    placeholder="Enter title (10-30 characters)"
                    required minlength="10" maxlength="30">
           </label>
@@ -22,7 +22,7 @@ const EditModal = {
             <small style="display: block; margin-top: 4px; color: rgba(0, 0, 0, 0.7);">
               Enter description (20-150 characters)
             </small>
-            <textarea v-model="currentEdit.guide.description"
+            <textarea v-model.trim="currentEdit.guide.description"
                       placeholder="Enter description (20-150 characters)"
                       required minlength="20" maxlength="150"
                       style="white-space: pre-wrap; overflow-wrap: break-word"></textarea>
@@ -33,7 +33,7 @@ const EditModal = {
               e.g., 3 hours or 45 minutes
             </small>
             <input type="text"
-                   v-model="currentEdit.guide.duration"
+                   v-model.trim="currentEdit.guide.duration"
                    placeholder="e.g., 3 hours or 45 minutes"
                    pattern="^(?:[1-9]|[1-5][0-9]|60)\\s+(hours|minutes)$"
                    required>
@@ -44,7 +44,7 @@ const EditModal = {
               e.g., 4.5
             </small>
             <input type="text"
-                   v-model="currentEdit.guide.rating"
+                   v-model.trim="currentEdit.guide.rating"
                    placeholder="e.g., 4.5"
                    pattern="^(?:[1-4]\\.[0-9]|5\\.0)$"
                    required>
@@ -55,7 +55,7 @@ const EditModal = {
               e.g., 5 km
             </small>
             <input type="text"
-                   v-model="currentEdit.guide.length"
+                   v-model.trim="currentEdit.guide.length"
                    placeholder="e.g., 5 km"
                    pattern="^(?:[1-9]|[1-5][0-9]|60)\\s+km$"
                    required>
@@ -80,10 +80,10 @@ const EditModal = {
     </div>
   `,
   methods: {
-    validateAndSubmit() {
-      this.$emit('submit-edit');
-    }
+  validateAndSubmit() {
+    this.$emit('submit-edit');
   }
+}
 };
 
 export default EditModal;
