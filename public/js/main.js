@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     location.reload();
   });
 
+  const adminLink = document.querySelector('a[href="admin.html"]');
+  if (localStorage.getItem('isAdmin') === 'true' && adminLink) {
+    adminLink.style.display = 'none';
+  }
+
   // find the nearest route using the browser's geolocation API.
   function findNearestRoutes() {
     if (navigator.geolocation) {
@@ -65,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2 });
   document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
   });
