@@ -1,98 +1,98 @@
-# Projekt TravelGuide
+# Project TravelGuide
 
-## Přehled projektu
+## Project Overview
 
-**TravelGuide** je interaktivní webová aplikace sloužící jako turistický průvodce. Umožňuje uživatelům:
+**TravelGuide** is an interactive web application serving as a tourist guide. It allows users to:
 
-- Prohlížet si průvodce po městech
-- Zobrazovat multimediální obsah (video a audio průvodce)
-- Prozkoumávat mapy
-- Vyhledat nejbližší průvodce pomocí geolokace. 
-- Získávat lokální doporučení (kavárny, muzea)
+- Browse city guides
+- Display multimedia content (video and audio guides)
+- Explore maps
+- Search for the nearest guides using geolocation
+- Get local recommendations (cafés, museums)
 
-Součástí je taky:
-- Animované slidery
-- Přepínání mezi světlým a tmavým režimem
-- Tlačítko pro návrat na začátek stránky (scroll-to-top)
-- Offline přístupnost pomocí localStorage a kontroly dostupnosti internetu
-- Administrační rozhraní pro úpravu obsahu, přístupné pouze administrátorům.
-
----
-
-## Struktura projektu
-
-### Složky a soubory
-
-- **`/`** – HTML šablony (`index.html`, `route_detail.html`, `admin.html`, `404.html`)
-- **`css/`** – Stylovací soubory (`styles.css`, `admin.css`, `route_details.css`, `404.css`)
-- **`js/`** – Hlavní logika aplikace (`main.js`, `route.js`, `vue-app.js`, `auth.js`, `new_app.js`)
-- **`js/components/`** – Vue komponenty (`edit_modal.js`, `favorite_modal.js`)
-- **`js/utils/`** – Pomocné moduly (`slider.js`, `scroll_to_top.js`, `weather_widget.js`, `theme.js`, `media_control.js`)
-- **`js/vue/`** – Externa knihovna (`vue.global.js`)
+It also includes:
+- Animated sliders
+- Switching between light and dark mode
+- Scroll-to-top button
+- Offline accessibility using localStorage and internet availability checks
+- Admin interface for content editing, accessible only to administrators
 
 ---
 
-## Vývoj
+## Project Structure
 
-- Aplikace využívá moderní JavaScript a framework **Vue 3** pro reaktivní rozhraní.(Vue je použivana jako knihovna)
-- Data průvodců jsou modelována objektově a ukládána do `localStorage`, což zajišťuje funkčnost i offline.
-- Administrace zahrnuje přihlašování a editaci pomocí Vue modálů.
-- Interaktivní mapa využívá **Leaflet**, multimediální obsah se načítá pouze při dostupnosti internetu.
-- Další funkce:
-  - Posuvný slider s využitím `requestAnimationFrame`
-  - Přepínání témat (tmavý/světlý režim)
+### Folders and Files
+
+- **`/`** – HTML templates (`index.html`, `route_detail.html`, `admin.html`, `404.html`)
+- **`css/`** – Styling files (`styles.css`, `admin.css`, `route_details.css`, `404.css`)
+- **`js/`** – Main application logic (`main.js`, `route.js`, `vue-app.js`, `auth.js`, `new_app.js`)
+- **`js/components/`** – Vue components (`edit_modal.js`, `favorite_modal.js`)
+- **`js/utils/`** – Utility modules (`slider.js`, `scroll_to_top.js`, `weather_widget.js`, `theme.js`, `media_control.js`)
+- **`js/vue/`** – External library (`vue.global.js`)
+
+---
+
+## Development
+
+- The app uses modern JavaScript and the **Vue 3** framework for a reactive interface. (Vue is used as a library)
+- Guide data is object-modeled and stored in `localStorage`, ensuring offline functionality.
+- The admin panel includes login and editing using Vue modals.
+- The interactive map uses **Leaflet**, and multimedia content loads only when the internet is available.
+- Additional features:
+  - Sliding slider using `requestAnimationFrame`
+  - Theme switching (dark/light mode)
   - Scroll-to-top
-  - Geolokace a externí API pro doporučení
+  - Geolocation and external API for recommendations
 
-Offline režim je řešen kontrolou připojení pomocí `fetch` na CORS-povolené API a zobrazováním srozumitelných upozornění.
-
----
-
-## Nasazení a testování
-
-- Projekt lze spustit na HTTP serveru (např. Live Server ve VS Code) nebo otevřit pomoci github pages https://polughoul.github.io/interactive-tourist-guide/
-- vue.global.js je uložen lokálně – pro offline přístup.
-- Testuje se responzivita, kompatibilita napříč prohlížeči a celková použitelnost pomocí moderních CSS technik (včetně vendor prefixů).
+Offline mode is handled via connection checking using `fetch` to a CORS-enabled API and showing clear alerts.
 
 ---
 
-## Funkce
+## Deployment and Testing
 
-### Hlavní rozhraní (`index.html`)
+- The project can be run on an HTTP server (e.g., Live Server in VS Code) or opened via GitHub Pages: https://polughoul.github.io/interactive-tourist-guide/
+- `vue.global.js` is stored locally – for offline access.
+- Responsiveness, cross-browser compatibility, and overall usability are tested using modern CSS techniques (including vendor prefixes).
 
-- Navigace, úvodní banner a karty průvodců (generováno pomocí `vue-app.js`)
-- Karty obsahují:
-  - Obrázek, název, popis, hodnocení, délku
-  - Tlačítka pro detail, přidání do oblíbených, úpravu (pro admina)
-- Drag and Drop API pro přeskupování karet průvodců. Uživatelé mohou jednoduše přetahovat a měnit pořadí karet.
+---
 
-### Detail průvodce (`route_detail.html`)
+## Features
 
-- Interaktivní mapa (Leaflet)
-- Video průvodce (YouTube)
-- Audio průvodce (lokální)
-- Widget počasí a doporučení v okolí
-- Galerie obrázků (slider)
-- Upozornění při nedostupnosti funkcí (offline režim)
+### Main Interface (`index.html`)
 
-### Offline režim
+- Navigation, intro banner, and guide cards (generated using `vue-app.js`)
+- Cards include:
+  - Image, title, description, rating, duration
+  - Buttons for details, add to favorites, edit (for admin)
+- Drag and Drop API for rearranging guide cards. Users can easily drag and reorder cards.
 
-- Funkce `checkInternetConnection()` ověřuje připojení přes `fetch`
-- Při nedostupnosti internetu se zobrazí zprávy místo:
-  - Videa, mapy, počasí, doporučení
-- Data jako průvodci, audio, oblíbené položky atd. jsou uložena v `localStorage`
+### Guide Detail (`route_detail.html`)
 
-### Administrace a editace
+- Interactive map (Leaflet)
+- Video guide (YouTube)
+- Audio guide (local)
+- Weather widget and nearby recommendations
+- Image gallery (slider)
+- Warnings when features are unavailable (offline mode)
 
-- Stránka `admin.html` umožňuje přihlášení a úpravy obsahu
-- Editace probíhá pomocí Vue modálních oken
-- Úpravy se ukládají do `localStorage`
+### Offline Mode
 
-### Uživatelské zlepšení
+- The `checkInternetConnection()` function checks connection using `fetch`
+- If the internet is unavailable, messages appear instead of:
+  - Video, map, weather, recommendations
+- Data like guides, audio, favorites, etc., are stored in `localStorage`
 
-- Přepínání světlého/tmavého režimu (ukládá se do `localStorage`)
-- Tlačítko pro návrat na začátek, hover efekty a animace
-- Geolokace umožňuje zobrazit blízké průvodce a zajímavosti
-- Navigační historie a hladké posouvání(stránka plynule posouvá k příslušné sekci a zároveň se aktuální stav URL aktualizuje bez nutnosti obnovení stránky.)
+### Administration and Editing
+
+- The `admin.html` page allows login and content editing
+- Editing is done via Vue modal windows
+- Changes are saved in `localStorage`
+
+### User Enhancements
+
+- Light/dark mode switching (stored in `localStorage`)
+- Scroll-to-top button, hover effects, and animations
+- Geolocation allows displaying nearby guides and attractions
+- Navigation history and smooth scrolling (the page scrolls smoothly to the relevant section and updates the current URL state without page reload)
 
 ---
